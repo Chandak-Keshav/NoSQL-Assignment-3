@@ -18,3 +18,5 @@ result = FOREACH grouped_data {
 
 -- Output the result
 DUMP result;
+
+STORE result INTO '/output/Query-2' USING PigStorage(',');

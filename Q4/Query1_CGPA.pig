@@ -34,4 +34,4 @@ ordered_result = ORDER result BY cgpa DESC, total_credits_completed DESC;
 -- Output the result
 DUMP ordered_result;
 
-STORE ordered_result INTO '/' USING PigStorage(',');
+STORE ordered_result INTO '/output/Query-1' USING PigStorage(',');

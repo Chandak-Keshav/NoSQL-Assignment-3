@@ -20,3 +20,5 @@ filtered_attendance = FILTER attendance_data BY overall_attendance_percentage < 
 
 -- Output the result
 DUMP filtered_attendance;
+
+STORE filtered_attendance INTO '/output/Query-3' USING PigStorage(',');
