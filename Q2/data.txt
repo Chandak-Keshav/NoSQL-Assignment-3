@@ -1,0 +1,7 @@
+John,25,New York
+Jane,35,Los Angeles
+Mike,40,New York
+Alice,30,San Francisco
+Bob,45,Los Angeles
+Charlie,50,San Francisco
+
