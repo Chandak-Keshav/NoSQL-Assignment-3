@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS dim_grade_roster_optimised (
     subject_code_name STRING
 )
 PARTITIONED BY (section STRING)
-CLUSTERED BY (student_id) INTO 16 BUCKETS 
+CLUSTERED BY (student_id) INTO 8 BUCKETS 
 STORED AS ORC;
 
 
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS dim_attendance_data_optimised (
     average_attendance_percent FLOAT
 )
 PARTITIONED BY (course STRING)
-CLUSTERED BY (member_id) INTO 16 BUCKETS 
+CLUSTERED BY (member_id) INTO 8 BUCKETS 
 STORED AS ORC;
 
 
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS fact_table_optimised (
     course_credit INT,
     average_attendance_percent FLOAT
 )
-CLUSTERED BY (member_id) INTO 16 BUCKETS 
+CLUSTERED BY (member_id) INTO 8 BUCKETS 
 STORED AS ORC;
 
 
@@ -58,5 +58,5 @@ CREATE TABLE IF NOT EXISTS dim_enrollment_data_optimised (
   section STRING
 )
 PARTITIONED BY (subject_code_name STRING)
-CLUSTERED BY (student_id) INTO 16 BUCKETS 
+CLUSTERED BY (student_id) INTO 8 BUCKETS 
 STORED AS ORC;
