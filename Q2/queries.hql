@@ -53,3 +53,6 @@ HAVING
     (SUM(f.number_of_classes_attended) * 100.0) / (SUM(f.number_of_classes_attended) + SUM(f.number_of_classes_absent)) < 75;
 
 
+
+
+

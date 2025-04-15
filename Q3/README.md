@@ -129,6 +129,7 @@ To compute the CGPA (Cumulative Grade Point Average) for each student based on t
 This query is essential for academic performance analysis, ranking students, and eligibility for honors or scholarships.
 
 ![Alt text](images/query-1%20bucketing.png)
+**Time Elapsed:1.643 seconds**
 
 ### Query-2
 **Objective:**  
@@ -148,6 +149,8 @@ This helps analyze faculty engagement, workload distribution, and effectiveness 
 
 ![Alt text](images/query-2%20bucketing.png)
 
+**Time Elapsed:0.793 seconds**
+
 ### Query-3
 
 **Objective:**  
@@ -164,3 +167,11 @@ Used for academic warnings, eligibility checks for exams, and enforcing minimum 
 
 
 ![Alt text](images/query-3%20bucketing.png)
+
+**Time Elapsed:1.018 seconds**
+
+## Comparsion With and Without Bucketing
+
+![Alt text](images/comparison.png)
+
+Here, we can clearly see an increase in the query performance where the elapsed time has decreased by almost 4 times in some cases. But, the create and loading data into the optimised tables takes ample time, due to their internal pre-processing.

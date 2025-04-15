@@ -1,4 +1,10 @@
-# Data Pipeline and Cleaning with Hive
+# Assignment-3: Pig and Hive
+- Keshav Chandak(IMT2021003)
+- Sunny Kaushik(IMT2021007)
+- Muteeb Sheikh(IMT2021008)
+- Rishi Nelapati(IMT2021076)
+
+# Question-1
 
 ## Overview
 

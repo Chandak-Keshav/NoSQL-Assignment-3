@@ -1,8 +1,13 @@
-Below are three separate Markdown sections—one for each Pig query in Question‐4. You can copy these directly into your README.md file. Each section includes a description of the objectives, processing steps, and key aspects of the Pig script.
+## Question-4: Pig Query
 
----
+Note: To run a pig query and make a time comparison, we can simply put:
+```
+time pig -x local sample.pig
+```
+The scripts that were used for querying are their in the **Q4 directory**.   
+The output from the pig query is there in the output directory
 
-## Query 1: CGPA Calculation per Student
+### Query 1: CGPA Calculation per Student
 
 **Objective:**  
 Calculate the CGPA for each student along with their total credits completed using the institutional grading system.
@@ -65,9 +70,11 @@ DUMP ordered_result;
 STORE ordered_result INTO '/output/Query-1' USING PigStorage(',');
 ```
 
----
+**Image**
+![Alt text](images/Query-1.png)
+**Elapsed time:5.005 seconds**
 
-## Query 2: Faculty-wise Summary of Attendance and Course Credit
+### Query 2: Faculty-wise Summary of Attendance and Course Credit
 
 **Objective:**  
 Calculate the number of students, average attendance percentage, and maximum course credit for each faculty by filtering for passed students.
@@ -114,9 +121,11 @@ DUMP result;
 STORE result INTO '/output/Query-2' USING PigStorage(',');
 ```
 
----
+**Image**
+![Alt text](images/Query-2.png)
+**Elapsed time:4.445 seconds**
 
-## Query 3: Identify Low Attendance (Below 75%) per Student-Course
+### Query 3: Identify Low Attendance (Below 75%) per Student-Course
 
 **Objective:**  
 Determine the attendance percentage for each student in each course and identify those records where attendance is below 75%.
@@ -166,11 +175,13 @@ filtered_attendance = FILTER attendance_data BY overall_attendance_percentage < 
 DUMP filtered_attendance;
 STORE filtered_attendance INTO '/output/Query-3' USING PigStorage(',');
 ```
-Below is a Markdown write-up that highlights the key differences between Hive and Pig based on installation, setup, query performance, and ease of writing. You can copy this directly into your README.md or report.
-
----
+**Image**
+![Alt text](images/Query-3.png)
+**Elapsed time:4.536 seconds**
 
 ## Comparison of Hive vs. Pig
+
+![Alt text](images/compare.png)
 
 1. **Installation & Setup**
    - **Hive:**
@@ -199,7 +210,7 @@ Below is a Markdown write-up that highlights the key differences between Hive an
      - More suitable for batch processing analytical queries.
    - **Pig:**
      - Also handles large datasets but can be more efficient for ETL tasks and transformations.
-     - Performance can be comparable to Hive for many transformation operations; however, highly optimized Hive queries may outperform Pig on complex aggregations.
+     - Performance can be comparable to Hive for many transformation operations; however, highly optimized **Hive queries may outperform Pig on complex aggregations.**
      - Less emphasis on indexing and more on user-defined optimizations via scripting logic.
 
 4. **Suitability & Use Cases**
@@ -220,3 +231,5 @@ Below is a Markdown write-up that highlights the key differences between Hive an
      - Once very popular for data processing tasks, but usage has decreased in favor of Spark and other processing frameworks.
      - Still a viable option for specific transformation-heavy workflows.
 
+In the table as well, we can see that Hive outperforms Pig on almost all queries in terms of time, and when Hive is optimised with partitioning and bucketing, it always outperforms Pig.     
+Also, it was a little difficult to write pig scripts since it is easier to write SQL statements, which is similar to Hive queries.
