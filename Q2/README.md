@@ -115,14 +115,53 @@ docker cp fact_table_final.csv hive4:/tmp/fact_table.csv
 ![Alt text](images/docker-cp.png)
 
 ### Query-1
+**Objective:**  
+To compute the CGPA (Cumulative Grade Point Average) for each student based on the grade obtained and course credits.
+
+**Approach:**  
+- Join `dim_grade_roster` and `fact_table` on `student_id` and `subject_code_name`.
+- Use a weighted sum of grade points (based on institutional grading system) multiplied by `course_credit`.
+- Divide total weighted grade points by total credits to derive CGPA.
+- Order results by CGPA and then by total credits in descending order.
+
+
+**Use Case:**  
+This query is essential for academic performance analysis, ranking students, and eligibility for honors or scholarships.
+
 ![Alt text](images/query-1%20image-1.png)
 
 ![Alt text](images/query-1%20image-2.png)
 
 ### Query-2
+**Objective:**  
+To determine the number of students taught, average attendance, and maximum course credit for each faculty.
+
+**Approach:**  
+- Join `dim_grade_roster` and `fact_table` on student and course.
+- Filter for only those students who have passed (`exam_result = 'Pass'`).
+- Aggregate data to:
+  - Count distinct students per faculty.
+  - Calculate average attendance using `average_attendance_percent`.
+  - Determine the highest credit course taught by each faculty.
+
+**Use Case:**  
+This helps analyze faculty engagement, workload distribution, and effectiveness in teaching based on student attendance and course difficulty.
+
 ![Alt text](images/query-2.png)
 
 ### Query-3
+
+**Objective:**  
+To identify students who have an attendance percentage below 75% in any course.
+
+**Approach:**  
+- Join `dim_grade_roster` and `fact_table` on `student_id` and `subject_code_name`.
+- Calculate overall attendance percentage as (classes_attended / (attended + absent)) * 100:
+- Filter (`HAVING`) to return only those records with less than 75% attendance.
+
+**Use Case:**  
+Used for academic warnings, eligibility checks for exams, and enforcing minimum attendance policies.
+
 ![Alt text](images/query-3.png)
 
 
